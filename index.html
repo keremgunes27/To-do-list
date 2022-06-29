@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    
+    <script src="https://unpkg.com/vue@3"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div id="header">
+        <div class="title">
+          <h1>To Do List</h1>
+        </div>
+        <div class="search-box">
+          <input type="text" @keydown.enter="addTodo" placeholder="add to do and press enter"/>
+        </div>
+      </div>
+
+      <div id="todoList">
+        <ul>
+          <li v-for="todo in todoList"  >
+            <label @click="itemClicked(todo)" :class="{completed : todo.completed}" >{{ todo.text }}</label>
+            <button @click="removeItem(todo)"><i class="fa-solid fa-trash"></i></button>
+           
+          </li>
+         
+       
+      </div>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
